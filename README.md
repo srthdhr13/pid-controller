@@ -1,2 +1,8 @@
 # pid-controller
 pid controller in python 
+
+A proportional integral derivative controller is one of the most commonly used control algorithm.
+
+Let's take an example of a car and your aim is to reach 100kmph , you are currently at let's say 50kmph so the error would be 50 (error = setpoint - process variable). A proportional controller is used to push the car to 100kmph by multiplying the error with some coefficient  (let's call it Kp) , so the error is multiplied with this coefficient and fed back to the system , higher the error higher the push towards our desired goal but as we reach towards our desired speed the error obviously becomes very small which makes the output of proportional controller almost negligible. So now we have a problem , by using only the proportional controller we are not able to reach our desired speed , this is when we introduce another controller called the integral , which basically sums up all the previous errors , so it kind of acts as memory. When the error becomes very small , it is the integral controller which pushes it closer to the desired speed with the help of all the previous errors, but once again there is a problem the integral quickly adds up all the errors and pushes to desired output which can result in overshoot which we don't require. To overcome this problem we add another controller named derivate , it calculates the rate of change of error and prevents the overshoot. When the error is very small the difference in current error and previous error is negative so in this way the derivative controller prevents the overshoot , one can visualise derivative controller as releasing the gas pedal once we are reaching our desired speed.
+
+I have tried implementing the same in python. 
